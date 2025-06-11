@@ -61,7 +61,7 @@ async function ExtractOrInsertCommnad(options?: ExtractTextOptions, detection?: 
   const { text, rawText, range, args, document, isInsert } = options
   const filepath = document.uri.fsPath
 
-  const default_keypath = generateKeyFromText(rawText || text, filepath)
+  const default_keypath = await generateKeyFromText(rawText || text, filepath)
 
   const existingItems: QuickPickItemWithKey[]
     = isInsert

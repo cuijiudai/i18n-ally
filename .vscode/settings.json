@@ -24,10 +24,11 @@
     "regs",
     "youdao"
   ],
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.formatOnSave": false,
   "i18n-ally.localesPaths": "./locales",
   "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.displayLanguage": "zh-CN", // 显示语言 (显示文件/翻译文件)
   "i18n-ally.keystyle": "flat",
   "i18n-ally.preferredDelimiter": "_",
   "i18n-ally.sortKeys": true,
@@ -41,17 +42,11 @@
     "view.progress_submenu.missing_keys",
     "view.progress_submenu.empty_keys"
   ],
-  "i18n-ally.usage.scanningIgnore": [
-    "examples",
-  ],
+  "i18n-ally.usage.scanningIgnore": ["examples"],
   "i18n-ally.regex.usageMatchAppend": [
     "/\\*\\s*i18n\\s*\\*/\\s*['\"`]({key})['\"`]"
   ],
-  "i18n-ally.enabledFrameworks": [
-    "vscode",
-    "vue",
-    "general"
-  ],
+  "i18n-ally.enabledFrameworks": ["vscode", "vue", "general"],
   "i18n-ally.theme.annotationMissingBorder": "#d37070",
   "i18n-ally.theme.annotationMissing": "#d37070",
   "eslint.validate": [
@@ -62,5 +57,5 @@
     "vue",
     "html"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

@@ -5,9 +5,10 @@ import limax from 'limax'
 import { Config, Global } from '../extension'
 import { ExtractInfo } from './types'
 import { CurrentFile } from './CurrentFile'
+import { Translator } from './Translator'
 import { changeCase } from '~/utils/changeCase'
 
-export function generateKeyFromText(text: string, filepath?: string, reuseExisting = false, usedKeys: string[] = []): string {
+export async function generateKeyFromText(text: string, filepath?: string, reuseExisting = false, usedKeys: string[] = []) {
   let key: string | undefined
 
   // already existed, reuse the key
@@ -29,8 +30,45 @@ export function generateKeyFromText(text: string, filepath?: string, reuseExisti
   else if (keygenStrategy === 'source') {
     key = text
   }
+  else if (keygenStrategy === 'english') {
+    try {
+      // 直接调用翻译文本，最多重试10次
+      let retries = 10
+      let result
+      while (retries > 0) {
+        try {
+          // eslint-disable-next-line no-console
+          console.log('Retrying translation...')
+          result = await Translator.translateText(text, Config.sourceLanguage, 'en')
+          if (result)
+            break
+          retries--
+        }
+        catch (err) {
+          if (retries === 1) throw err // 最后一次尝试时才抛出错误
+          retries--
+          await new Promise(resolve => setTimeout(resolve, 1000)) // 等待1秒后重试
+        }
+      }
+      if (result) {
+        key = limax(result, {
+          separator: '-',
+          maintainCase: false,
+          tone: false,
+        })
+      }
+      else {
+        key = ''
+      }
+    }
+    catch (e) {
+      console.error('Translation failed after retries:', e)
+      key = ''
+    }
+  }
   else {
     text = text.replace(/\$/g, '')
+    // 转换 中文 为拼音的位置
     key = limax(text, { separator: Config.preferredDelimiter, tone: false })
       .slice(0, Config.extractKeyMaxLength ?? Infinity)
   }

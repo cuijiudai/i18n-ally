@@ -1,19 +1,20 @@
 {
-  "publisher": "lokalise",
-  "name": "i18n-ally",
+  "publisher": "cuijiudai",
+  "name": "i18n-ally-vue3",
   "version": "2.13.1",
-  "displayName": "i18n Ally",
-  "description": "🌍 All in one i18n extension for VS Code",
+  "displayName": "i18n Ally vue3",
+  "description": "i18n Ally for vue3",
   "keywords": [
     "vue",
     "vue-i18n",
     "translate",
     "i18n",
-    "i18next"
+    "i18next",
+    "vue3"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/lokalise/i18n-ally"
+    "url": "https://github.com/cuijiudai/i18n-ally.git"
   },
   "main": "./dist/extension",
   "scripts": {
@@ -62,6 +63,7 @@
     "lodash": "^4.17.21",
     "micromatch": "^4.0.4",
     "nanoid": "^3.1.25",
+    "p-limit": "3.0.1",
     "parse-gitignore": "^1.0.1",
     "pofile": "^1.1.1",
     "properties": "^1.2.1",
@@ -168,8 +170,8 @@
     "onLanguage:svelte"
   ],
   "icon": "res/logo.png",
-  "homepage": "https://github.com/lokalise/i18n-ally",
-  "bugs": "https://github.com/lokalise/i18n-ally/issues",
+  "homepage": "https://github.com/cuijiudai/i18n-ally.git",
+  "bugs": "https://github.com/cuijiudai/i18n-ally/issues",
   "contributes": {
     "commands": [
       {
@@ -1193,7 +1195,8 @@
             "slug",
             "random",
             "empty",
-            "source"
+            "source",
+            "english"
           ],
           "description": "%config.keygen_strategy%"
         },

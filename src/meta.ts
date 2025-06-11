@@ -1,6 +1,6 @@
 export const EXT_NAMESPACE = 'i18n-ally'
-export const EXT_ID = 'lokalise.i18n-ally'
-export const EXT_NAME = 'i18n Ally'
+export const EXT_ID = 'cuijiudai.i18n-ally'
+export const EXT_NAME = 'i18n Ally vue3'
 export const EXT_EDITOR_ID = 'i18n-ally-editor'
 export const EXT_REVIEW_ID = 'i18n-ally-review'
 
@@ -30,5 +30,5 @@ export const DEFAULT_LOCALE_COUNTRY_MAP = {
   ja: 'ja',
   es: 'es',
   vi: 'vn',
-  lb: 'lu'
+  lb: 'lu',
 }
