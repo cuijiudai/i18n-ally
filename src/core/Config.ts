@@ -180,7 +180,7 @@ export class Config {
     return this.getConfig<SortCompare>('sortCompare') || 'binary'
   }
 
-  static get sortLocale(): string | undefined{
+  static get sortLocale(): string | undefined {
     return this.getConfig<string>('sortLocale')
   }
 
@@ -586,5 +586,9 @@ export class Config {
 
   static get telemetry(): boolean {
     return workspace.getConfiguration().get('telemetry.enableTelemetry') as boolean
+  }
+
+  static get vueApiStyle() {
+    return this.getConfig<'Composition'| 'Options' | null | undefined>('vueApiStyle') ?? null
   }
 }

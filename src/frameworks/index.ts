@@ -100,7 +100,6 @@ export function getEnabledFrameworks(dependencies: PackageDependencies, root: st
       const key = k as PackageFileType
       const packages = dependencies[key]
       const req = framework.detection[key]
-
       if (packages && req) {
         if (typeof req === 'function') {
           return req(packages, root)

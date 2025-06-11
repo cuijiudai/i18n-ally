@@ -1200,6 +1200,15 @@
           ],
           "description": "%config.keygen_strategy%"
         },
+        "i18n-ally.vueApiStyle": {
+          "type": "string",
+          "default": "Composition",
+          "enum": [
+            "Composition",
+            "Options"
+          ],
+          "description": "%config.vueApiStyle%"
+        },
         "i18n-ally.extract.keygenStyle": {
           "type": "string",
           "default": "default",

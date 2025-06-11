@@ -1,3 +1,4 @@
+// 这里没修改，因为改完影响 settings.json 的配置获取,前缀是 i18n-ally
 export const EXT_NAMESPACE = 'i18n-ally'
 export const EXT_ID = 'cuijiudai.i18n-ally'
 export const EXT_NAME = 'i18n Ally vue3'

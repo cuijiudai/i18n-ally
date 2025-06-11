@@ -1,6 +1,17 @@
-<p align="center">
-<img src="https://github.com/lokalise/i18n-ally/blob/main/screenshots/full-logo-new.png?raw=true" alt="logo" width="450"/>
+<h1 align="center">i18n ally vue3</h3>
+<p>
+基于 i18n ally 4c504c93cec6c4697134eca379f1476d0eb1c9f6 提交修改
 </p>
+<ul>
+  <li>
+    添加 "i18n-ally.extract.keygenStrategy": "english" ，支持提取 key 为 英文 ，使用配置的 engines 翻译
+  </li>
+  <li>
+    添加 "i18n-ally.vueApiStyle": "Composition" ，解决 vue3 提取 js 里文案被替换为 this.$t(),改为 t() 
+  </li>
+</ul>
+
+<h2> i18n ally 文档: </h2>
 
 <p align='center'>
 English | <a href="https://github.com/lokalise/i18n-ally/blob/main/README.zh-CN.md">简体中文</a>

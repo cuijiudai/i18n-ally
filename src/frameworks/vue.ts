@@ -31,23 +31,35 @@ class VueFramework extends Framework {
 
   // for visualize the regex, you can use https://regexper.com/
   usageMatchRegex = [
-    '(?:i18n(?:-\\w+)?[ \\n]\\s*(?:\\w+=[\'"][^\'"]*[\'"][ \\n]\\s*)?(?:key)?path=|v-t=[\'"`{]|(?:this\\.|\\$|i18n\\.|[^\\w\\d])(?:t|tc|te)\\()\\s*[\'"`]({key})[\'"`]'
+    '(?:i18n(?:-\\w+)?[ \\n]\\s*(?:\\w+=[\'"][^\'"]*[\'"][ \\n]\\s*)?(?:key)?path=|v-t=[\'"`{]|(?:this\\.|\\$|i18n\\.|[^\\w\\d])(?:t|tc|te)\\()\\s*[\'"`]({key})[\'"`]',
   ]
 
+  // 根据给定的keypath和args，以及可选的doc和detection，重构模板
   refactorTemplates(keypath: string, args: string[] = [], doc?: TextDocument, detection?: DetectionResult) {
+    // 将keypath转换为字符串
     let params = `'${keypath}'`
+    // 如果args不为空，则将args转换为字符串并添加到params中
     if (args.length)
       params += `, [${args.join(', ')}]`
 
+    // 根据detection的source属性，返回不同的模板
     switch (detection?.source) {
       case 'html-inline':
         return [`{{ $t(${params}) }}`]
       case 'html-attribute':
         return [`$t(${params})`]
       case 'js-string':
+        // 如果detection的source属性为js-string，则根据Config.vueApiStyle的值返回不同的模板,兼容 vue3
+        if (Config.vueApiStyle) {
+          if (Config.vueApiStyle === 'Composition')
+            return [`t(${params})`]
+          else
+            return [`this.$t(${params})`]
+        }
         return [`this.$t(${params})`, `i18n.t(${params})`, `t(${params})`]
     }
 
+    // 如果detection的source属性不匹配，则返回默认的模板
     return [
       `{{ $t(${params}) }}`,
       `this.$t(${params})`,
