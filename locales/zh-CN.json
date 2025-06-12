@@ -157,6 +157,7 @@
   "prompt.error_on_parse_custom_regex": "无法解析RegExp字符串{0}。\n请检查您的配置",
   "prompt.existing_translation": "已存在的翻译",
   "prompt.extraction_canceled": "文案提取已取消",
+  "prompt.extraction_in_progress": "文案提取中",
   "prompt.failed_to_locate_key": "找不到路径 \"{0}\"",
   "prompt.frameworks_not_found": "找不到以下框架，请检查您的设置。\n{0}",
   "prompt.fullfill_missing_all_confirm": "您确定要使用空字符串来填充所有丢失的文案吗？\n\n此操作无法撤消。",

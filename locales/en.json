@@ -159,6 +159,7 @@
   "prompt.error_on_parse_custom_regex": "Failed to parse RegEx string {0}. Please check your config",
   "prompt.existing_translation": "Existing translation",
   "prompt.extraction_canceled": "Extraction canceled",
+  "prompt.extraction_in_progress": "extraction in progress",
   "prompt.failed_to_locate_key": "Failed to locate key \"{0}\".",
   "prompt.frameworks_not_found": "The following framework(s) are not found. Please check your settings.\n{0}",
   "prompt.fullfill_missing_all_confirm": "Are you sure you want to fulfill all missing keys with empty strings cross all locales?\n\nThis operation cannot be undone!",

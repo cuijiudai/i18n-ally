@@ -151,7 +151,8 @@ export async function BatchHardStringExtraction(...args: any[]) {
                   document.positionAt(i.fullStart as number),
                   document.positionAt(i.fullEnd as number),
                 )
-                returnVal.replaceTo = ":" + i.attrName + '="' + templates[0] + '"'
+                // eslint-disable-next-line prefer-template
+                returnVal.replaceTo = ':' + i.attrName + '="' + templates[0] + '"'
               }
             }
             return returnVal

@@ -81,7 +81,7 @@ class VueFramework extends Framework {
   detectHardStrings(doc: TextDocument) {
     const text = doc.getText()
 
-    return extractionsParsers.html.detect(
+    const result = extractionsParsers.html.detect(
       text,
       DefaultExtractionRules,
       DefaultDynamicExtractionsRules,
@@ -93,7 +93,10 @@ class VueFramework extends Framework {
         DefaultDynamicExtractionsRules,
         Config.extractParserBabelOptions,
       ),
-    )
+      // 过滤掉 : 开头的，兼容 :label="`cess`" 被 二次替换问题
+      // 在监测的时候还是会出现，但是不进行 替换
+    ).filter(item => item.attrName?.charAt(0) !== ':')
+    return result
   }
 }
 

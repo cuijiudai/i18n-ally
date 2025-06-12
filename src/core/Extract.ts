@@ -52,10 +52,9 @@ export async function generateKeyFromText(text: string, filepath?: string, reuse
       }
       if (result) {
         key = limax(result, {
-          separator: '-',
-          maintainCase: false,
+          separator: Config.preferredDelimiter || '-',
           tone: false,
-        })
+        }).slice(0, Config.extractKeyMaxLength ?? Infinity)
       }
       else {
         key = ''
