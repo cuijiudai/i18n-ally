@@ -12,6 +12,9 @@
   <li>
     解决 vue 的模板 prop 替换没有添加 : 问题 ; eg:从  title="标题"  替换为 :title="$t('title')"
   </li>
+  <li>
+    解决 vue prop 被二次提取问题;eg :label="`xx`" 被二次提取问题
+  </li>
 </ul>
 
 <h2> i18n ally 文档: </h2>
