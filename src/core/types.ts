@@ -169,6 +169,7 @@ export interface DetectionResult {
   fullStart?: number
   fullEnd?: number
   source: DetectionSource
+  attrName?: string // 属性 字符串
 }
 
 export interface ExtractInfo {

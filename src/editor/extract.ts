@@ -23,17 +23,21 @@ export function DetectionResultToExtraction(detection: DetectionResult, document
 }
 
 class ExtractProvider implements CodeActionProvider {
+  // 提供代码操作
   public async provideCodeActions(
     document: TextDocument,
     selection: Range | Selection,
     context: CodeActionContext,
   ): Promise<(Command | CodeAction)[]> {
+    // 如果全局未启用，则返回空数组
     if (!Global.enabled)
       return []
 
+    // 如果不支持当前语言，则返回空数组
     if (!Global.isLanguageIdSupported(document.languageId))
       return []
 
+    // 查找诊断信息
     const diagnostic = context.diagnostics.find(i => i.code === PROBLEM_CODE_HARD_STRING) as DiagnosticWithDetection | undefined
 
     // quick fix for hard string problems

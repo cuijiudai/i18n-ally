@@ -9,6 +9,9 @@
   <li>
     添加 "i18n-ally.vueApiStyle": "Composition" ，解决 vue3 提取 js 里文案被替换为 this.$t(),改为 t() 
   </li>
+  <li>
+    解决 vue 的模板 prop 替换没有添加 : 问题 ; eg:从  title="标题"  替换为 :title="$t('title')"
+  </li>
 </ul>
 
 <h2> i18n ally 文档: </h2>

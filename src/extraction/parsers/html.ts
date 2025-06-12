@@ -85,6 +85,7 @@ export function detect(
           fullEnd,
           fullText,
           source: 'html-attribute',
+          attrName: name, // 保留属性名称
         })
       }
     },

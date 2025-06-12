@@ -1,6 +1,6 @@
 import path from 'path'
 import pLimit from 'p-limit'
-import { commands, ProgressLocation, TextDocument, Uri, window, workspace } from 'vscode'
+import { commands, ProgressLocation, Range, TextDocument, Uri, window, workspace } from 'vscode'
 import { notNullish } from '@antfu/utils'
 import fs from 'fs-extra'
 import { DetectHardStrings } from './detectHardStrings'
@@ -134,13 +134,27 @@ export async function BatchHardStringExtraction(...args: any[]) {
               increment,
               message: `${finished}/${totalItems}`,
             })
-            return {
+
+            const returnVal = {
               range,
               replaceTo: templates[0],
               keypath,
               message: text,
               locale: Config.displayLanguage,
             }
+            // 处理 vue html-attribute 不带 ：问题
+            if (['vue'].includes(options.document.languageId || '')) {
+              const isAttr = i.source === 'html-attribute'
+              if (isAttr) {
+                // 替换 range
+                returnVal.range = new Range(
+                  document.positionAt(i.fullStart as number),
+                  document.positionAt(i.fullEnd as number),
+                )
+                returnVal.replaceTo = ":" + i.attrName + '="' + templates[0] + '"'
+              }
+            }
+            return returnVal
           }))
           const resultMap = (await Promise.all(tasks)).filter(notNullish)
           if (token.isCancellationRequested) {
