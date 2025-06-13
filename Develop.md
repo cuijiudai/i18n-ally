@@ -18,7 +18,6 @@
 
 ## 4. 发布插件
 ```bash
-  npm run release
   vsce publish
 ```
 
