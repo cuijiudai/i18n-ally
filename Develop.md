@@ -11,8 +11,14 @@
 ```
 生成 .vsix 文件后可在VSCode中通过"Install from VSIX"测试
 
-## 3. 发布插件
+## 3. 生成版本
 ```bash
+  npm run release
+```
+
+## 4. 发布插件
+```bash
+  npm run release
   vsce publish
 ```
 

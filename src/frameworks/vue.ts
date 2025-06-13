@@ -95,7 +95,7 @@ class VueFramework extends Framework {
       ),
       // 过滤掉 : 开头的，兼容 :label="`cess`" 被 二次替换问题
       // 在监测的时候还是会出现，但是不进行 替换
-    ).filter(item => item.attrName?.charAt(0) !== ':')
+    ).filter(item => item.attrName?.charAt(0) !== ':' && item.attrName?.slice(0, 7) !== 'v-bind:')
     return result
   }
 }
