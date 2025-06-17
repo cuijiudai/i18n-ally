@@ -1,4 +1,4 @@
-<h1 align="center">i18n ally vue3</h3>
+<h1 align="center">i18n ally vue</h3>
 <p>
 基于 i18n ally 4c504c93cec6c4697134eca379f1476d0eb1c9f6 提交修改
 </p>
@@ -7,7 +7,7 @@
     添加 "i18n-ally.extract.keygenStrategy": "english" ，支持提取 key 为 英文 ，使用配置的 engines 翻译
   </li>
   <li>
-    添加 "i18n-ally.vueApiStyle": "Composition" ，解决 vue3 提取 js 里文案被替换为 this.$t(),改为 t() 
+    添加 "i18n-ally.vueApiStyle": "Composition" ，解决 vue 提取 js 里文案被替换为 this.$t(),改为 t() 
   </li>
   <li>
     解决 vue 的模板 prop 替换没有添加 : 问题 ; eg:从  title="标题"  替换为 :title="$t('title')"

@@ -4,17 +4,16 @@
 ```bash 
   npm install -g vsce
 ```
+## 2. 生成版本
+```bash
+  npm run release
+```
 
-## 2. 打包插件
+## 3. 打包插件
 ```bash
   vsce package
 ```
 生成 .vsix 文件后可在VSCode中通过"Install from VSIX"测试
-
-## 3. 生成版本
-```bash
-  npm run release
-```
 
 ## 4. 发布插件
 ```bash

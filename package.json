@@ -1,16 +1,16 @@
 {
   "publisher": "cuijiudai",
-  "name": "i18n-ally-vue3",
+  "name": "i18n-ally-vue",
   "version": "2.13.4",
-  "displayName": "i18n Ally vue3",
-  "description": "i18n Ally for vue3",
+  "displayName": "i18n Ally vue",
+  "description": "i18n Ally for vue",
   "keywords": [
     "vue",
     "vue-i18n",
     "translate",
     "i18n",
     "i18next",
-    "vue3"
+    "vue"
   ],
   "repository": {
     "type": "git",
