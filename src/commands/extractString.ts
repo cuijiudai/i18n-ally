@@ -33,7 +33,7 @@ async function ExtractOrInsertCommnad(options?: ExtractTextOptions, detection?: 
     return
   }
 
-  if (!options) {
+  if (!options || !options.rawText) {
     // execute from command palette, get from active document
     const editor = window.activeTextEditor
     const currentDoc = editor?.document

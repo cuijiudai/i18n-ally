@@ -402,6 +402,13 @@
       }
     ],
     "menus": {
+      "editor/context": [
+        {
+          "command": "i18n-ally.extract-text",
+          "when": "editorHasSelection",
+          "group": "0_i18n@0"
+        }
+      ],
       "commandPalette": [
         {
           "command": "i18n-ally.set-display-language",

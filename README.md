@@ -15,6 +15,9 @@
   <li>
     解决 vue prop 被二次提取问题;eg :label="`xx`" 被二次提取问题
   </li>
+  <li>
+    右键菜单里 添加 `提取文案到依i18n`
+  </li>
 </ul>
 
 <h2> i18n ally 文档: </h2>
